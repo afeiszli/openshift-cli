@@ -12,5 +12,4 @@ RUN apk --no-cache add $BUILD_DEPS $RUN_DEPS && \
     rm -rf /tmp/oc.tar.gz && \
     apk del $BUILD_DEPS
 
-CMD ["/usr/local/bin/oc"]
-
+CMD exec /bin/bash -c "trap : TERM INT; sleep infinity & wait"
